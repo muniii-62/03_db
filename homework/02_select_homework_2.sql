@@ -10,3 +10,23 @@ where ENT_YN = 'N' and PHONE like '%2'
 order by HIRE_DATE desc
 
 limit 3;
+
+
+/* 2번문제
+ 재직 중인 ‘대리’들의 직원명, 직급명, 급여, 사원번호, 이메일, 전화번호,
+   입사일을 출력하세요.
+
+단, 급여를 기준으로 내림차순 출력하세요.
+ */
+
+select emp_name as 직원면,
+       JOB_NAME as 직급명,
+       SALARY as 급여,
+       EMP_ID as 사원번호,
+       EMAIL as 이메일,
+       PHONE as 전화번호
+from employee e
+join job j on e.JOB_CODE = j.JOB_CODE
+where ENT_YN ='N' and j.JOB_NAME = '대리'
+order by SALARY desc;
+
